@@ -1,3 +1,4 @@
+// main funcion of the program
 fn main() {
     tauri::Builder::default()
         .run(tauri::generate_context!())

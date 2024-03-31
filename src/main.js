@@ -1,5 +1,5 @@
 
-// Dosyayı kaydetme işlevi
+// File save function
 function saveFile() {
     var code = window.editor.getValue();
     var blob = new Blob([code], { type: 'text/plain;charset=utf-8' });
@@ -14,12 +14,12 @@ function saveFile() {
 
 
 
-// Dosya listesi oluşturma işlevi
+// File list function
 function populateFileList() {
     var fileList = document.getElementById('fileList');
-    var files = ['file1.rs', 'file2.rs', 'file3.rs']; // Örnek dosya listesi, gerçek dosya listesini buraya yerleştirin
+    var files = ['file1.rs', 'file2.rs', 'file3.rs']; // Sample file listing process 
 
-    fileList.innerHTML = ''; // Dosya listesini temizle
+    fileList.innerHTML = ''; // Clear listed file
 
     files.forEach(function(file) {
         var li = document.createElement('li');
