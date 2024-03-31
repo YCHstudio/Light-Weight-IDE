@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code Editor</title>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: Arial, sans-serif;
+    }
+    .editor {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .code-input {
+        flex: 1;
+        background-color: #272822;
+        color: #F8F8F2;
+        padding: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+        border: none;
+    }
+    .highlighted-code {
+        background-color: #272822;
+        color: #F8F8F2;
+        padding: 10px;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+</style>
+</head>
+<body>
+<div class="editor">
+    <textarea class="code-input" id="codeInput" spellcheck="false" autofocus></textarea>
+    <div class="highlighted-code" id="highlightedCode"></div>
+</div>
+<script>
+    const codeInput = document.getElementById('codeInput');
+    const highlightedCode = document.getElementById('highlightedCode');
+
+    // Renkler için basit bir belirleyici
+    function highlightSyntax(code) {
+        const keywords = ['def', 'if', 'else', 'elif', 'while', 'for', 'return']; // Örnek Python anahtar kelimeleri
+        const specialChars = ['\\', '/', ':', '.', ',', ';', '(', ')', '{', '}', '[', ']', '-', '+', '=', '*', '%', '&', '|', '!', '<', '>', '?', '^']; // Özel karakterler
+        keywords.forEach(keyword => {
+            const regex = new RegExp("\\b" + keyword + "\\b", "g");
+            code = code.replace(regex, '<span style="color: #66D9EF">' + keyword + '</span>');
+        });
+        specialChars.forEach(char => {
+            const regex = new RegExp("\\" + char, "g");
+            code = code.replace(regex, '<span style="color: #F92672">' + char + '</span>');
+        });
+        return code;
+    }
+
+    codeInput.addEventListener('input', () => {
+        const code = codeInput.value;
+        const highlighted = highlightSyntax(code);
+        highlightedCode.innerHTML = '';
+        highlightedCode.insertAdjacentHTML('beforeend', highlighted);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Tauri IDE</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Explorer</h2>
+        <ul id="fileList" class="file-list">
+            <!-- Buraya dosya listesi eklenecek -->
+        </ul>
+    </div>
+    <div id="editor" class="editor"></div>
+    <button onclick="saveFile()" class="save-button">Save</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.27.0/min/vs/loader.min.js"></script>
+    <script>
+        require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.27.0/min/vs' }});
+        require(['vs/editor/editor.main'], function() {
+            var editor = monaco.editor.create(document.getElementById('editor'), {
+                value: [
+                    '// Welcome to Rust Tauri IDE!',
+                    'fn main() {',
+                    '\tprintln!("Hello, world!");',
+                    '}'
+                ].join('\n'),
+                language: 'rust',
+                theme: 'vs-dark'
+            });
+        });
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
