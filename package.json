@@ -4,5 +4,8 @@
   },
   "scripts": {
     "tauri": "tauri"
+  },
+  "dependencies": {
+    "monaco-editor": "^0.47.0"
   }
 }

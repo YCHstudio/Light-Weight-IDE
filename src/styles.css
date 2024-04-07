@@ -1,39 +1,41 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  display: flex;
-  height: 100vh;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	display: flex;
+	height: 100vh;
 }
-
-.sidebar {
-  width: 200px;
-  background: #f4f4f4;
-  padding: 20px;
-}
-
-.file-list {
-  list-style-type: none;
-  padding: 0;
-}
-
 .editor {
-  flex: 1;
-  height: 100%;
+	flex: 1;
+	height: 100%;
 }
 
 .save-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	padding: 10px 20px;
+	font-size: 16px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
 }
-
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+li {
+	cursor: pointer;
+}
+#editorContainer {
+	height: 500px;
+	border: 1px solid #ccc;
+}
 .save-button:hover {
-  background-color: #0056b3;
+	background-color: #0056b3;
+}
+/* Yukarıda verilen CSS kodlarına ek olarak, file explorer bileşeninin stilini tanımlayabilirsiniz. */
+.file-explorer {
+	/* Stil ayarları buraya eklenebilir */
 }
